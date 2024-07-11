@@ -1,13 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap");
-
-/* .shippori-mincho-b1-regular {
-  font-family: "Shippori Mincho B1", serif;
-  font-weight: 400;
-  font-style: normal;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap');
 
 * {
-  font-family: "Shippori Mincho B1", serif;
+  font-family: 'Shippori Mincho B1', serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -18,50 +12,55 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-radius: 6px;
   width: 100vh;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .heading-container h2 {
   font-size: 1.5rem;
   font-weight: 500;
   font-style: normal;
+  margin-bottom: 20px;
 }
 
 .form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
   flex-direction: column;
   border: 2px solid #ccc;
   border-radius: 6px;
   width: 450px;
-  height: 500px;
-  padding: 150px;
+  padding: 20px;
+  background-color: #fdfdfd;
+}
+
+.form.active {
+  display: flex;
+}
+
+.form-group {
+  margin-bottom: 15px;
 }
 
 .form-group label {
-  margin: 10px;
+  margin-bottom: 5px;
+  display: block;
 }
 
 .form input {
-  margin: 10px;
   padding: 10px;
-  width: 300px;
+  width: 100%;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 .form input:hover {
-  border: 1px solid #3f3e42ff;
+  border: 1px solid #3f3e42;
 }
 
 .form input:focus {
-  border: none;
-}
-
-.form input:focus {
-  border: 1px solid #3f3e42ff;
+  border: 1px solid #3f3e42;
+  outline: none;
 }
 
 .checkbox-group {
@@ -74,13 +73,12 @@
 }
 
 .form button {
-  margin: 10px;
   padding: 10px;
-  width: 300px;
-  /* border: 1px solid #ccc; */
+  width: 100%;
   border-radius: 5px;
-  background-color: #3f3e42ff;
+  background-color: #3f3e42;
   color: white;
+  cursor: pointer;
   transition: transform 0.3s;
 }
 
@@ -88,25 +86,10 @@
   transform: translateY(2px);
 }
 
-.register-text {
-  font-size: 1rem;
-  margin: 10px;
+.form .prev-btn {
+  background-color: #9ea2aa;
 }
 
-.register-text a {
-  color: #e9402a;
-}
-
-.secrets-container {
-  font-size: 1.2rem;
-  margin: 10px;
-  border: 1px solid #ccc;
-  padding: 10px;
-}
-
-/* secondary Form */
-
-/* Require visuals (accross all forms) */
-.required {
-  color: red;
+.form .submit-btn {
+  background-color: #e9402a;
 }
