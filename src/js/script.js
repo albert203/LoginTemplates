@@ -58,6 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateStep(index) {
     document.querySelector(".step.active").classList.remove("active");
     steps[index].classList.add("active");
-    progressBar.style.width = `${((index + 1) / totalSteps) * 100}%`;
+    progressBar.style.width = `${((index + 1) / totalSteps) * 50}%`;
   }
 });

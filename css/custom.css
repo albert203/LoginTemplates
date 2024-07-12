@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap");
 
+:root {
+  --nav-height: 100px;
+}
+
 * {
   font-family: "Shippori Mincho B1", serif;
   margin: 0;
@@ -7,50 +11,211 @@
   box-sizing: border-box;
 }
 
+/* Google Map Elements */
+
+/* navbar */
+.header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+
+  height: 125px;
+  z-index: 11;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+  z-index: 1;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo-text-container {
+  background: #1f1e1e;
+  padding: 12px;
+  border-radius: 16px;
+}
+
+.logo-text {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-left: 10px;
+}
+
+.logo-img {
+  width: 100px;
+  z-index: 1;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  margin-right: 50px;
+}
+
+.nav-list {
+  display: flex;
+  text-transform: uppercase;
+  list-style: none;
+}
+
+.nav-item {
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  color: #000;
+}
+
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #1f1e1e; /* Color of underline */
+  transition: width 0.3s ease; /* Animation transition */
+}
+
+.nav-list a:hover {
+  color: #000000; /* Change color on hover */
+  font-weight: 600;
+}
+
+.nav-list a:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
+
+.nav-button {
+  font-weight: bold;
+  margin-left: 35px;
+  padding: 12px 35px;
+  border: 2px solid #fff;
+  color: #fff;
+  background: #1f1e1e;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.nav-button:active {
+  transform: scale(0.98);
+}
+
+/* stepper bar */
+.stepper-container {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  top: calc(var(--nav-height) + 125px);
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.step.active {
+  font-weight: bold;
+  color: #3498db;
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 25%;
+  height: 10px;
+  border-radius: 6px;
+  width: 0%;
+  background: linear-gradient(to right, #c3e3d3, #4fb1e5);
+  transition: width 0.5s ease;
+}
+
+.background-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 25%;
+  height: 10px;
+  border-radius: 6px;
+  width: 50%;
+  background-color: #ccc;
+}
+
+.full-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
 .form-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100vh;
-  margin: 0 auto;
-  padding: 20px;
+  position: absolute;
 }
 
 .heading-container h2 {
   font-size: 1.5rem;
   font-weight: 500;
   font-style: normal;
-  margin-bottom: 20px;
 }
 
 .form {
   display: none;
   flex-direction: column;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  width: 450px;
-  padding: 20px;
-  background-color: #fdfdfd;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  width: 450px; /* Limit maximum width for better responsiveness */
+  gap: 20px;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* .form.active {
+.form.active {
   display: flex;
-} */
+}
 
 .form-group {
-  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group label {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .form input {
-  padding: 10px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 12px; /* Increased padding for better touchability */
+  border: 1px solid #ccc; /* Adjusted border color */
+  border-radius: 5px; /* Adjusted border radius */
+  font-size: 1rem; /* Increased font size for better readability */
 }
 
 .form input:hover {
@@ -72,61 +237,56 @@
 }
 
 .form button {
-  padding: 10px;
-  width: 100%;
+  padding: 12px 20px; /* Adjusted padding for better spacing */
+  border: none; /* Remove default border */
   border-radius: 5px;
-  background-color: #3f3e42;
+  background-color: #3f3e42; /* Dark background color */
   color: white;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow for subtle depth effect */
 }
 
 .form button:active {
   transform: translateY(2px);
+  box-shadow: none; /* Remove box shadow on click */
 }
 
 .form .prev-btn {
-  background-color: #9ea2aa;
+  background-color: #9ea2aa; /* Lighter background color for previous button */
+  color: #fff; /* White text color */
 }
 
 .form .submit-btn {
-  background-color: #e9402a;
+  background-color: #e9402a; /* Submit button color */
+  color: #fff; /* White text color */
 }
 
-.stepper-container {
+.form .prev-btn,
+.form .submit-btn {
+  padding: 12px 20px; /* Adjusted padding for consistency */
+  margin: 10px 0; /* Added margin for spacing */
+}
+
+/* Always set the map height explicitly to define the size of the div element that contains the map. */
+#map {
+  height: 100%;
+}
+
+.login-container {
   display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.step {
-  flex: 1;
-  text-align: center;
-  padding: 10px;
-  cursor: pointer;
-  position: relative;
+.login-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-style: normal;
 }
 
-.step.active {
-  font-weight: bold;
-  color: #3498db;
-}
-
-.progress-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 0;
-  background: linear-gradient(to right, #3498db, #2ecc71);
-  transition: width 0.5s ease;
-}
-
-.form {
-  display: none;
-}
-
-.form.active {
-  display: block;
+.placeholder-red::placeholder,
+.a-link {
+  color: red; /* Set the placeholder text color to red */
 }
