@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Step Form</title>
+    <!-- <link rel="stylesheet" href="../css/output.css" /> -->
+    <link rel="stylesheet" href="../css/reduced.css" />
+  </head>
+  <body>
+    <div class="full-form">
+      <img class="banner-img" src="/assets/img/banner.png" alt="banner" />
+
+      <div class="stepper-container">
+        <div class="step active" data-step="0"></div>
+        <div class="step" data-step="1"></div>
+        <div class="step" data-step="2"></div>
+        <div class="background-bar"></div>
+        <div class="progress-bar"></div>
+      </div>
+
+      <div class="form-container">
+        <!-- Step 1 -->
+        <form class="form form-0 active">
+          <div class="heading-container">
+            <h2>Register</h2>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter Your Email" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter Your Password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              placeholder="Confirm Your Password"
+            />
+          </div>
+          <div class="form-group">
+            <button type="button" class="next-btn">Next</button>
+          </div>
+
+          <div class="login-container">
+            <p class="login-text">
+              Already Have An Account? <a class="a-link" href="#">Login</a>
+            </p>
+          </div>
+        </form>
+
+        <!-- Step 2 -->
+        <form class="form form-1" id="form-step-2">
+          <div class="heading-container">
+            <h2>Personal Details</h2>
+          </div>
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input
+              type="text"
+              id="first-name"
+              placeholder="Enter Your First Name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input
+              type="text"
+              id="last-name"
+              placeholder="Enter Your Last Name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="company-name">Company Name</label>
+            <input
+              type="text"
+              id="company-name"
+              placeholder="Enter Your Company Name"
+            />
+          </div>
+          <div class="form-group">
+            <button type="button" class="prev-btn">Previous</button>
+            <button type="button" class="next-btn">Next</button>
+          </div>
+
+          <div class="login-container">
+            <p class="login-text">
+              Already Have An Account? <a class="a-link" href="#">Login</a>
+            </p>
+          </div>
+        </form>
+
+        <!-- Step 3 -->
+        <form class="form form-2" id="form-step-3">
+          <div class="heading-container">
+            <h2>Address Details</h2>
+          </div>
+          <div class="input-group form-group" id="locationField">
+            <input
+              class="form-control m-5"
+              id="autocomplete"
+              placeholder="Enter your address"
+              type="text"
+            />
+          </div>
+
+          <!-- Hidden fields to hold the address details -->
+          <div
+            class="input-group form-group"
+            style="display: none"
+            id="address-details"
+          >
+            <input
+              class="form-control m-5"
+              id="street_number"
+              placeholder="Street Number"
+              type="text"
+            />
+            <input
+              class="form-control m-5"
+              id="route"
+              placeholder="Route"
+              type="text"
+            />
+            <input
+              class="form-control m-5"
+              id="locality"
+              placeholder="Locality"
+              type="text"
+            />
+            <input
+              class="form-control m-5"
+              id="administrative_area_level_1"
+              placeholder="Administrative Area"
+              type="text"
+            />
+            <input
+              class="form-control m-5"
+              id="country"
+              placeholder="Country"
+              type="text"
+            />
+            <input
+              class="form-control m-5"
+              id="postal_code"
+              placeholder="Postal Code"
+              type="text"
+            />
+            <input
+              class="form-control m-5"
+              id="sublocality_level_1"
+              placeholder="Sublocality"
+              type="text"
+            />
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="submit-btn">Submit</button>
+            <button type="button" class="prev-btn">Previous</button>
+          </div>
+
+          <div class="login-container">
+            <p class="login-text">
+              Already Have An Account? <a class="a-link" href="#">Login</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- STYLE FOR GOOGLE MAP -->
+    <!-- <style>
+      /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+ 
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+ 
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+ 
+      locationfield {
+        height: 100%;
+      }
+    </style> -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+
+    <div id="map"></div>
+
+    <script src="js/script.js"></script>
+    <script src="js/maps.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtuO0qHiEB1cx4bqVijaRgK6ceFFJcOLY&libraries=places&callback=initAutocomplete"
+      defer
+    ></script>
+  </body>
+</html>

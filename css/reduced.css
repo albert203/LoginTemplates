@@ -11,112 +11,6 @@
   box-sizing: border-box;
 }
 
-/* Google Map Elements */
-
-/* navbar */
-.header {
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  width: 100%;
-
-  height: 125px;
-  z-index: 11;
-}
-
-.logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 50px;
-  z-index: 1;
-}
-
-.banner-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.logo-text-container {
-  background: #1f1e1e;
-  padding: 12px;
-  border-radius: 16px;
-}
-
-.logo-text {
-  color: #ffffff;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-left: 10px;
-}
-
-.logo-img {
-  width: 100px;
-  z-index: 1;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  z-index: 2;
-  margin-right: 50px;
-}
-
-.nav-list {
-  display: flex;
-  text-transform: uppercase;
-  list-style: none;
-}
-
-.nav-item {
-  padding: 10px 30px;
-  border-radius: 10px;
-}
-
-.nav-list a {
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
-  color: #000;
-}
-
-.nav-list a::after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: #1f1e1e; /* Color of underline */
-  transition: width 0.3s ease; /* Animation transition */
-}
-
-.nav-list a:hover {
-  color: #000000; /* Change color on hover */
-  font-weight: 600;
-}
-
-.nav-list a:hover::after {
-  width: 100%; /* Expand underline on hover */
-}
-
-.nav-button {
-  font-weight: bold;
-  margin-left: 35px;
-  padding: 12px 35px;
-  border: 2px solid #fff;
-  color: #fff;
-  background: #1f1e1e;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.nav-button:active {
-  transform: scale(0.98);
-}
-
 /* stepper bar */
 .stepper-container {
   display: flex;
@@ -169,6 +63,12 @@
   flex-direction: column;
   width: 100%;
   height: 100vh;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .form-container {
@@ -227,15 +127,6 @@
   outline: none;
 }
 
-.checkbox-group {
-  font-size: 0.9rem;
-}
-
-.checkbox-group a {
-  margin: 10px;
-  color: #e9402a;
-}
-
 .form button {
   padding: 12px 20px; /* Adjusted padding for better spacing */
   border: none; /* Remove default border */
@@ -266,11 +157,6 @@
 .form .submit-btn {
   padding: 12px 20px; /* Adjusted padding for consistency */
   margin: 10px 0; /* Added margin for spacing */
-}
-
-/* Always set the map height explicitly to define the size of the div element that contains the map. */
-#map {
-  height: 100%;
 }
 
 .login-container {
