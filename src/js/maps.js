@@ -2,20 +2,20 @@
 var placeSearch, autocomplete;
 
 var componentForm = {
-  street_number: "short_name",
-  route: "long_name",
-  locality: "long_name",
-  administrative_area_level_1: "short_name",
-  country: "long_name",
-  postal_code: "short_name",
-  sublocality_level_1: "long_name",
+  street_number: 'short_name',
+  route: 'long_name',
+  locality: 'long_name',
+  administrative_area_level_1: 'short_name',
+  country: 'long_name',
+  postal_code: 'short_name',
+  sublocality_level_1: 'long_name',
 };
 
 function initMap(a, b) {
-  map = new google.maps.Map(document.getElementById("map"), {
+  map = new google.maps.Map(document.getElementById('map'), {
     center: { lat: a, lng: b },
     zoom: 18,
-    mapTypeId: "satellite",
+    mapTypeId: 'satellite',
   });
 
   new google.maps.Marker({
@@ -28,36 +28,36 @@ function initMap(a, b) {
 function initAutocomplete() {
   // Create the autocomplete object, restricting the search to geographical
   // location types.
-  var input = document.getElementById("autocomplete");
+  var input = document.getElementById('autocomplete');
   var options = {
     componentRestrictions: {
-      country: "nz",
+      country: 'nz',
     },
   };
   autocomplete = new google.maps.places.Autocomplete(input, options);
 
   //autocomplete.addListener('place_changed', fillInAddress);
 
-  google.maps.event.addListener(autocomplete, "place_changed", function () {
+  google.maps.event.addListener(autocomplete, 'place_changed', function () {
     var place = autocomplete.getPlace();
     if (!place.geometry) {
-      window.alert("Please select an Address from the list!");
+      window.alert('Please select an Address from the list!');
       return;
     }
-    fetch("http://10.1.1.117:3045", {
-      method: "POST",
+    fetch('http://10.1.1.117:3045', {
+      method: 'POST',
       body: JSON.stringify({ addressPart: place.formatted_address }),
-      headers: { "Content-Type": "application/json" },
+      headers: { 'Content-Type': 'application/json' },
     }).then(function (result) {
       result.json().then(function (data) {
         if (data != null || undefined) {
           const rural = data.Services.NonUrban;
           //console.log(data.Services.Business);
-          var input = document.getElementById("business");
+          var input = document.getElementById('business');
           if (data.Services.Business) {
-            input.value = rural ? "Rural " : "" + "Business Delivery";
+            input.value = rural ? 'Rural ' : '' + 'Business Delivery';
           } else {
-            input.value = rural ? "Rural " : "" + "Residential Delivery";
+            input.value = rural ? 'Rural ' : '' + 'Residential Delivery';
           }
         }
       });
@@ -74,8 +74,8 @@ function initAutocomplete() {
   });
 
   // Clear address input field on focus (Alberts code)
-  input.addEventListener("focus", () => {
-    input.value = "";
+  input.addEventListener('focus', () => {
+    input.value = '';
     ClearHiddenFields();
   });
 }
@@ -94,22 +94,22 @@ function getValues(place) {
 
 // populates fields and sets placeholder color (alberts code)
 function PopulateHiddenFields(data) {
-  var addressDetails = document.getElementById("address-details");
-  addressDetails.style.display = "flex"; // Ensure the container is visible
+  var addressDetails = document.getElementById('address-details');
+  addressDetails.style.display = 'flex'; // Ensure the container is visible
 
   for (var key in componentForm) {
     var element = document.getElementById(key);
     if (element) {
       // Set value from data or empty string if data[key] is undefined or null
-      element.value = data[key] || "";
+      element.value = data[key] || '';
 
       // Check if value is empty or whitespace
-      if (element.value.trim() === "") {
-        element.classList.add("placeholder-red"); // Add red-placeholder class
+      if (element.value.trim() === '') {
+        element.classList.add('placeholder-red'); // Add red-placeholder class
       } else {
-        element.classList.remove("placeholder-red"); // Remove red-placeholder class
+        element.classList.remove('placeholder-red'); // Remove red-placeholder class
       }
-      element.style.display = "flex"; // Ensure the element is visible
+      element.style.display = 'flex'; // Ensure the element is visible
     }
   }
 }
@@ -120,8 +120,8 @@ function ClearHiddenFields() {
   fields.forEach(function (field) {
     var input = document.getElementById(field);
     if (input) {
-      input.value = "";
-      input.style.display = "none";
+      input.value = '';
+      input.style.display = 'none';
     }
   });
 }
