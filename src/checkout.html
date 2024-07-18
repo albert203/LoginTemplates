@@ -22,29 +22,6 @@
         onsubmit="handleSubmit(event)"
       >
         <div>
-          <div>
-            <h2 class="text-lg font-medium text-gray-900">
-              Contact information
-            </h2>
-
-            <div class="mt-4">
-              <label
-                for="email-address"
-                class="block text-sm font-medium text-gray-700"
-                >Email address</label
-              >
-              <div class="mt-1">
-                <input
-                  type="email"
-                  id="email-address"
-                  name="email-address"
-                  autocomplete="email"
-                  class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-            </div>
-          </div>
-
           <div class="mt-10 border-t border-gray-200 pt-10">
             <h2 class="text-lg font-medium text-gray-900">
               Shipping information
@@ -57,19 +34,24 @@
               <label
                 for="address"
                 class="block text-sm font-medium text-gray-700"
-                >Select Shipping Address
+                >Shipping Address
               </label>
               <div class="mt-1 sm:col-span-2">
                 <select
                   id="address"
                   name="address"
                   autocomplete="address-level1"
-                  class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  place-holder="Select Shipping Address"
+                  class="text-gray-400 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 >
-                  <option>Default Shipping Address</option>
-                  <option>$SavedOption1</option>
-                  <option>$SavedOption2</option>
-                  <option>...</option>
+                  <!-- bind default address -->
+                  <option class="text-gray-400" selected disabled>
+                    Select Existing Address
+                  </option>
+                  <option class="text-gray-700">$SavedOption1</option>
+                  <option class="text-gray-700">$SavedOption2</option>
+                  <option class="text-gray-700">$SavedOption3</option>
+                  <option class="text-gray-700">$SavedOption4</option>
                 </select>
               </div>
             </div>
@@ -77,7 +59,7 @@
             <div
               class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4"
             >
-              <div>
+              <div class="mt-1">
                 <label
                   for="first-name"
                   class="block text-sm font-medium text-gray-700"
@@ -89,12 +71,13 @@
                     id="first-name"
                     name="first-name"
                     autocomplete="given-name"
+                    placeholder="Enter First Name"
                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
 
-              <div>
+              <div class="mt-1">
                 <label
                   for="last-name"
                   class="block text-sm font-medium text-gray-700"
@@ -106,22 +89,7 @@
                     id="last-name"
                     name="last-name"
                     autocomplete="family-name"
-                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                  />
-                </div>
-              </div>
-
-              <div class="sm:col-span-2">
-                <label
-                  for="company"
-                  class="block text-sm font-medium text-gray-700"
-                  >Company</label
-                >
-                <div class="mt-1">
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
+                    placeholder="Enter Last Name"
                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
@@ -139,6 +107,24 @@
                     id="address"
                     name="address"
                     autocomplete="street-address"
+                    placeholder="Enter Address"
+                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  />
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label
+                  for="company"
+                  class="block text-sm font-medium text-gray-700"
+                  >Company</label
+                >
+                <div class="mt-1">
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    placeholder="Enter Company Name"
                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
@@ -148,13 +134,14 @@
                 <label
                   for="apartment"
                   class="block text-sm font-medium text-gray-700"
-                  >Apartment, suite, etc.</label
+                  >Street</label
                 >
                 <div class="mt-1">
                   <input
                     type="text"
                     id="apartment"
                     name="apartment"
+                    placeholder="Enter Street Address"
                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
@@ -168,9 +155,9 @@
                 >
                 <div class="mt-1">
                   <input
+                    id="locality"
                     type="text"
-                    id="city"
-                    name="city"
+                    placeholder="Enter City"
                     autocomplete="address-level2"
                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
@@ -201,13 +188,13 @@
                 <label
                   for="region"
                   class="block text-sm font-medium text-gray-700"
-                  >State / Province</label
+                  >Region / Province</label
                 >
                 <div class="mt-1">
                   <input
+                    id="administrative_area_level_1"
+                    placeholder="Enter Region / Province"
                     type="text"
-                    id="region"
-                    name="region"
                     autocomplete="address-level1"
                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
@@ -222,9 +209,9 @@
                 >
                 <div class="mt-1">
                   <input
+                    id="postal_code"
+                    placeholder="Enter Postal Code"
                     type="text"
-                    id="postal-code"
-                    name="postal-code"
                     autocomplete="postal-code"
                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
@@ -250,113 +237,185 @@
             </div>
           </div>
 
-          <div class="mt-10 border-t border-gray-200 pt-10">
-            <fieldset>
-              <legend class="text-lg font-medium text-gray-900">
-                Delivery method
-              </legend>
+          <!-- Delivery Methods -->
+          <div class="mt-10 border-t border-gray-200 pt-10"></div>
+          <fieldset>
+            <legend class="text-lg font-medium text-gray-900">
+              Delivery method
+            </legend>
 
-              <div
-                class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4"
+            <div
+              class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4"
+            >
+              <label
+                class="relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none border-gray-300"
+                for="standardDelivery"
               >
-                <label
-                  class="relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none border-gray-300"
-                  for="standardDelivery"
-                >
-                  <input
-                    type="radio"
-                    id="standardDelivery"
-                    name="delivery-method"
-                    value="Standard"
-                    class="sr-only"
-                  />
-                  <span class="flex flex-1">
-                    <span class="flex flex-col">
-                      <span class="block text-sm font-medium text-gray-900"
-                        >Standard</span
-                      >
-                      <span class="mt-1 flex items-center text-sm text-gray-500"
-                        >4–10 business days</span
-                      >
-                      <span class="mt-6 text-sm font-medium text-gray-900"
-                        >$XX.XX</span
-                      >
-                    </span>
+                <input
+                  type="radio"
+                  id="standardDelivery"
+                  name="delivery-method"
+                  value="Standard"
+                  class="sr-only"
+                />
+                <span class="flex flex-1">
+                  <span class="flex flex-col">
+                    <span class="block text-sm font-medium text-gray-900"
+                      >Standard</span
+                    >
+                    <span class="mt-1 flex items-center text-sm text-gray-500"
+                      >4–10 business days</span
+                    >
+                    <span class="mt-6 text-sm font-medium text-gray-900"
+                      >$XX.XX</span
+                    >
                   </span>
-                  <span
-                    class="pointer-events-none absolute -inset-px rounded-lg border-2"
-                    aria-hidden="true"
-                  ></span>
-                </label>
+                </span>
+                <span
+                  class="pointer-events-none absolute -inset-px rounded-lg"
+                  aria-hidden="true"
+                ></span>
+              </label>
 
-                <label
-                  class="relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none border-gray-300"
-                  for="expressDelivery"
-                >
-                  <input
-                    type="radio"
-                    id="expressDelivery"
-                    name="delivery-method"
-                    value="Express"
-                    class="sr-only"
-                  />
-                  <span class="flex flex-1">
-                    <span class="flex flex-col">
-                      <span class="block text-sm font-medium text-gray-900"
-                        >Express</span
-                      >
-                      <span class="mt-1 flex items-center text-sm text-gray-500"
-                        >2–5 business days</span
-                      >
-                      <span class="mt-6 text-sm font-medium text-gray-900"
-                        ><span> + </span> $XX.XX</span
-                      >
-                    </span>
+              <label
+                class="relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none border-gray-300"
+                for="expressDelivery"
+              >
+                <input
+                  type="radio"
+                  id="expressDelivery"
+                  name="delivery-method"
+                  value="Express"
+                  class="sr-only"
+                />
+                <span class="flex flex-1">
+                  <span class="flex flex-col">
+                    <span class="block text-sm font-medium text-gray-900"
+                      >Express</span
+                    >
+                    <span class="mt-1 flex items-center text-sm text-gray-500"
+                      >2–5 business days</span
+                    >
+                    <span class="mt-6 text-sm font-medium text-gray-900"
+                      ><span> + </span> $XX.XX</span
+                    >
                   </span>
-                  <span
-                    class="pointer-events-none absolute -inset-px rounded-lg border-2"
-                    aria-hidden="true"
-                  ></span>
-                </label>
+                </span>
+                <span
+                  class="pointer-events-none absolute -inset-px rounded-lg"
+                  aria-hidden="true"
+                ></span>
+              </label>
 
-                <label
-                  class="relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none border-gray-300"
-                  for="expressDelivery"
-                >
-                  <input
-                    type="radio"
-                    id="expressDelivery"
-                    name="delivery-method"
-                    value="Express"
-                    class="sr-only"
-                  />
-                  <span class="flex flex-1">
-                    <span class="flex flex-col">
-                      <span class="block text-sm font-medium text-gray-900"
-                        >Split-Shipping</span
-                      >
+              <label
+                class="relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none border-gray-300"
+                for="expressDelivery"
+              >
+                <input
+                  type="radio"
+                  id="expressDelivery"
+                  name="delivery-method"
+                  value="Express"
+                  class="sr-only"
+                />
+                <span class="flex flex-1">
+                  <span class="flex flex-col">
+                    <span class="block text-sm font-medium text-gray-900"
+                      >Split-Shipping</span
+                    >
 
-                      <span class="mt-1 flex items-center text-sm text-gray-500"
-                        >3–6 business days</span
-                      >
-                      <span class="mt-1 flex items-center text-sm text-red-700">
-                        <s>4-10 business days</s>
-                      </span>
-
-                      <span class="mt-6 text-sm font-medium text-gray-900">
-                        <span> + </span>
-                        $XX.XX</span
-                      >
+                    <span class="mt-1 flex items-center text-sm text-gray-500"
+                      >3–6 business days</span
+                    >
+                    <span class="mt-1 flex items-center text-sm text-red-500">
+                      <s>4-10 business days</s>
                     </span>
+
+                    <span class="mt-6 text-sm font-medium text-gray-900">
+                      <span> + </span>
+                      $XX.XX</span
+                    >
                   </span>
+                </span>
+                <span
+                  class="pointer-events-none absolute -inset-px rounded-lg"
+                  aria-hidden="true"
+                ></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="mt-10 border-t border-gray-200 pt-10"></div>
+
+          <div class="mt-10 border-t border-gray-200 pt-10"></div>
+
+          <!-- Radio Buttons -->
+          <fieldset>
+            <legend class="text-lg font-medium text-gray-900">
+              Delivery Additional Services
+            </legend>
+            <div class="mt-4 grid grid-cols-1 gap-y-6 sm:gap-x-4">
+              <label
+                class="cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none border-gray-300"
+                for="expressDelivery1"
+              >
+                <input
+                  type="radio"
+                  id="expressDelivery1"
+                  name="delivery-method"
+                  value="Express"
+                  class="sr-only"
+                />
+                <div class="grid grid-cols-2 gap-x-4 items-center">
+                  <!-- Added 'items-center' for vertical alignment -->
                   <span
-                    class="pointer-events-none absolute -inset-px rounded-lg border-2"
-                    aria-hidden="true"
-                  ></span>
-                </label>
-              </div>
-            </fieldset>
-          </div>
+                    class="text-sm font-medium text-gray-900 whitespace-nowrap"
+                    >Ground Floor Delivery</span
+                  >
+                  <span
+                    class="text-sm font-medium text-gray-900 text-right ml-auto"
+                    >$XX.XX</span
+                  >
+                  <!-- Removed unnecessary classes -->
+                </div>
+                <span
+                  class="pointer-events-none absolute -inset-px rounded-lg"
+                  aria-hidden="true"
+                ></span>
+              </label>
+
+              <!-- Radio Buttons -->
+
+              <label
+                class="cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none border-gray-300"
+                for="expressDelivery1"
+              >
+                <input
+                  type="radio"
+                  id="expressDelivery1"
+                  name="delivery-method"
+                  value="Express"
+                  class="sr-only"
+                />
+                <div class="grid grid-cols-2 gap-x-4 items-center">
+                  <!-- Added 'items-center' for vertical alignment -->
+                  <span
+                    class="text-sm font-medium text-gray-900 whitespace-nowrap"
+                    >Ground Floor Delivery</span
+                  >
+                  <span
+                    class="text-sm font-medium text-gray-900 text-right ml-auto"
+                    >$XX.XX</span
+                  >
+                  <!-- Removed unnecessary classes -->
+                </div>
+                <span
+                  class="pointer-events-none absolute -inset-px rounded-lg"
+                  aria-hidden="true"
+                ></span>
+              </label>
+            </div>
+          </fieldset>
 
           <div class="mt-10 border-t border-gray-200 pt-10">
             <fieldset>
@@ -390,7 +449,7 @@
                       </span>
                     </span>
                     <span
-                      class="pointer-events-none absolute -inset-px rounded-lg border-2"
+                      class="pointer-events-none absolute -inset-px rounded-lg"
                       aria-hidden="true"
                     ></span>
                   </label>
@@ -420,7 +479,7 @@
                       </span>
                     </span>
                     <span
-                      class="pointer-events-none absolute -inset-px rounded-lg border-2"
+                      class="pointer-events-none absolute -inset-px rounded-lg"
                       aria-hidden="true"
                     ></span>
                   </label>
@@ -524,10 +583,64 @@
                 <dd class="text-sm font-medium text-gray-900">$XX.XX</dd>
               </div>
 
-              <div class="flex items-center justify-between">
+              <label class="flex items-center justify-between">
                 <dt class="text-sm">Rewards</dt>
-                <dd class="text-sm font-medium text-red-500">-$XX.XX</dd>
-              </div>
+              </label>
+
+              <fieldset class="w-full" aria-label="Rewards Points">
+                <div class="relative -space-y-px rounded-md bg-white">
+                  <!-- Use Discount Points -->
+                  <label
+                    aria-label="Use Discount Points"
+                    aria-description="Use 100 points for discount"
+                    class="relative grid cursor-pointer items-center border p-4 focus:outline-none rounded-tl-md rounded-tr-md md:grid-cols-3 md:pl-4 md:pr-6"
+                  >
+                    <div class="flex items-center text-sm">
+                      <input
+                        type="radio"
+                        name="rewards"
+                        value="use-points"
+                        class="w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600 active:ring-2 active:ring-indigo-600 active:ring-offset-2"
+                      />
+                      <span class="ml-3 font-medium uppercase whitespace-nowrap"
+                        >Use Discount</span
+                      >
+                    </div>
+                    <div class="text-sm flex items-center justify-center">
+                      <span class="text-red-500">- 100 Points</span>
+                    </div>
+                    <div class="text-sm flex items-center justify-end">
+                      <span class="text-gray-900">- $XX.XX</span>
+                    </div>
+                  </label>
+
+                  <!-- Collect Points -->
+                  <label
+                    aria-label="Collect Points"
+                    aria-description="Collect 100 points"
+                    class="relative grid cursor-pointer items-center border p-4 focus:outline-none rounded-bl-md rounded-br-md md:grid-cols-3 md:pl-4 md:pr-6"
+                  >
+                    <div class="flex items-center text-sm">
+                      <input
+                        type="radio"
+                        name="rewards"
+                        value="collect-points"
+                        class="w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600 active:ring-2 active:ring-indigo-600 active:ring-offset-2"
+                      />
+                      <span class="ml-3 font-medium uppercase whitespace-nowrap"
+                        >Collect Points</span
+                      >
+                    </div>
+                    <div class="text-sm flex items-center justify-center">
+                      <span class="text-green-500">+ 100 points</span>
+                    </div>
+                    <div class="text-sm flex items-center justify-end">
+                      <span class="text-gray-900">+ $XX.XX</span>
+                    </div>
+                  </label>
+                </div>
+              </fieldset>
+
               <div
                 class="flex items-center justify-between border-t border-gray-200 pt-6"
               >
@@ -539,7 +652,7 @@
             <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
               <button
                 type="submit"
-                class="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                class="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-3 text-base font-normal text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
               >
                 Confirm order
               </button>

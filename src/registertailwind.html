@@ -19,36 +19,36 @@
     }
   </style>
 
-  <body class="min-h-screen flex items-center justify-center">
-    <div class="w-full max-w-2xl mx-auto p-4 bg-white rounded-lg shadow-lg">
+  <body class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="w-full max-w-2xl mx-auto p-10 bg-white rounded-xl shadow-lg">
       <div
         class="stepper-container flex justify-between items-center mb-6 relative"
       >
         <div class="flex justify-between items-center w-full">
           <div
-            class="step active h-12 w-12 bg-indigo-600 text-white rounded-full flex items-center justify-center cursor-pointer"
+            class="step active h-12 w-12 bg-indigo-600 text-white rounded-full flex items-center justify-center cursor-pointer z-10"
             data-step="0"
           >
             1
           </div>
           <div
-            class="step h-12 w-12 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center cursor-pointer"
+            class="step h-12 w-12 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center cursor-pointer z-10"
             data-step="1"
           >
             2
           </div>
           <div
-            class="step h-12 w-12 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center cursor-pointer"
+            class="step h-12 w-12 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center cursor-pointer z-10"
             data-step="2"
           >
             3
           </div>
         </div>
         <div
-          class="progress-bar absolute left-0 right-0 top-1/2 transform -translate-y-1/2 h-2 bg-gray-300 rounded-full"
+          class="progress-bar absolute left-0 right-0 top-1/2 transform -translate-y-1/2 h-2 bg-gray-300 rounded-full z-0"
         >
           <div
-            class="progress-bar-fill absolute top-0 left-0 h-2 bg-indigo-600 rounded-full transition-width duration-500 ease-in-out"
+            class="progress-bar-fill absolute top-0 left-0 h-2 bg-indigo-600 rounded-full transition-width duration-500 ease-in-out z-0"
           ></div>
         </div>
       </div>
@@ -56,7 +56,7 @@
       <div class="relative">
         <!-- Step 1 -->
         <form class="form form-0 active flex flex-col space-y-4">
-          <h2 class="text-3xl font-semibold text-gray-800 mb-4">Register</h2>
+          <h2 class="text-3xl font-semibold text-gray-800 mb-2">Register</h2>
           <div>
             <label
               for="email"
@@ -67,7 +67,7 @@
               type="email"
               id="email"
               placeholder="Enter Your Email"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
+              class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-600 shadow-sm"
             />
           </div>
           <div>
@@ -80,7 +80,7 @@
               type="password"
               id="password"
               placeholder="Enter Your Password"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
+              class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-600 shadow-sm"
             />
           </div>
           <div>
@@ -93,12 +93,12 @@
               type="password"
               id="confirm-password"
               placeholder="Confirm Your Password"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
+              class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-600 shadow-sm"
             />
           </div>
           <button
             type="button"
-            class="next-btn w-full py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition duration-300"
+            class="next-btn w-full py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition duration-300 mt-2"
           >
             Next
           </button>
@@ -110,7 +110,7 @@
 
         <!-- Step 2 -->
         <form class="form form-1 hidden flex flex-col space-y-4">
-          <h2 class="text-3xl font-semibold text-gray-800 mb-4">
+          <h2 class="text-3xl font-semibold text-gray-800 mb-2">
             Personal Details
           </h2>
           <div>
@@ -123,7 +123,7 @@
               type="text"
               id="first-name"
               placeholder="Enter Your First Name"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
+              class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-600 shadow-sm"
             />
           </div>
           <div>
@@ -136,7 +136,7 @@
               type="text"
               id="last-name"
               placeholder="Enter Your Last Name"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
+              class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
             />
           </div>
           <div>
@@ -149,7 +149,7 @@
               type="text"
               id="company-name"
               placeholder="Enter Your Company Name"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
+              class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
             />
           </div>
           <div class="flex justify-between space-x-4">
@@ -174,7 +174,7 @@
 
         <!-- Step 3 -->
         <form class="form form-2 hidden flex flex-col space-y-4">
-          <h2 class="text-3xl font-semibold text-gray-800 mb-4">
+          <h2 class="text-3xl font-semibold text-gray-800 mb-2">
             Address Details
           </h2>
           <div>
@@ -187,53 +187,60 @@
               id="autocomplete"
               placeholder="Enter your address"
               type="text"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
+              class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
             />
           </div>
           <!-- Hidden fields for address details -->
-          <div id="address-details" class="hidden">
-            <input
-              id="street_number"
-              placeholder="Street Number"
-              type="text"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-600 mb-2"
-            />
-            <input
-              id="route"
-              placeholder="Route"
-              type="text"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-600 mb-2"
-            />
-            <input
-              id="locality"
-              placeholder="Locality"
-              type="text"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-600 mb-2"
-            />
-            <input
-              id="administrative_area_level_1"
-              placeholder="Administrative Area"
-              type="text"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-600 mb-2"
-            />
-            <input
-              id="country"
-              placeholder="Country"
-              type="text"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-600 mb-2"
-            />
-            <input
-              id="postal_code"
-              placeholder="Postal Code"
-              type="text"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-600 mb-2"
-            />
-            <input
-              id="sublocality_level_1"
-              placeholder="Sublocality"
-              type="text"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-600 mb-2"
-            />
+          <div id="address-details" class="hidden flex flex-col">
+            <label
+              for="company-name"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Address Details</label
+            >
+            <div class="flex flex-col mt-2 w-full">
+              <input
+                id="street_number"
+                placeholder="Street Number"
+                type="text"
+                class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
+              />
+              <input
+                id="route"
+                placeholder="Route"
+                type="text"
+                class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
+              />
+              <input
+                id="locality"
+                placeholder="Locality"
+                type="text"
+                class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
+              />
+              <input
+                id="administrative_area_level_1"
+                placeholder="Administrative Area"
+                type="text"
+                class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
+              />
+              <input
+                id="country"
+                placeholder="Country"
+                type="text"
+                class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
+              />
+              <input
+                id="postal_code"
+                placeholder="Postal Code"
+                type="text"
+                class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
+              />
+              <input
+                id="sublocality_level_1"
+                placeholder="Sublocality"
+                type="text"
+                class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-indigo-600"
+              />
+            </div>
           </div>
           <div class="flex justify-between space-x-4">
             <button
